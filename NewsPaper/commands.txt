@@ -1,0 +1,126 @@
+from news.models import *
+
+
+
+1)Создать двух пользователей (с помощью метода User.objects.create_user('username')).
+snap = User.objects.create_user('snap')
+shot = User.objects.create_user('shot')
+
+snap = User.objects.get(id=1)
+shot = User.objects.get(id=2)
+
+
+2)Создать два объекта модели Author, связанные с пользователями.
+ser = Author.objects.create(user = snap)
+gan = Author.objects.create(user = shot)
+
+ser = Author.objects.get(id=1)
+gan = Author.objects.get(id=2)
+
+
+
+
+3)Добавить 4 категории в модель Category.
+sport = Category.objects.create(category = 'sport')
+weather = Category.objects.create(category = 'weather')
+criminal = Category.objects.create(category = 'criminal')
+economic = Category.objects.create(category = 'economic')
+
+sport = Category.objects.get(id=1)
+weather = Category.objects.get(id=2)
+criminal = Category.objects.get(id=3)
+economic = Category.objects.get(id=4)
+
+
+
+
+4)Добавить 2 статьи и 1 новость.
+ar1 = Post.objects.create(author = ser, post_type = 'AR' , title = 'The Biggest Criminals in Sports History', text = 'You should never meet your heroes. That’s the old saying anyway. But the idea behind that is that they will never quite live up to the expectations you put on them as a fan. They might not be quite as impressive in the flesh as they seem to be on the field of play. ')
+ar2 = Post.objects.create(author = gan, post_type = 'AR' , title = 'What is Economic Crime?', text = 'Economic crime, also known as financial crime, refers to illegal acts committed by an individual or a group of individuals to obtain a financial or professional advantage. The principal motive in such crimes is economic gain.')
+
+new = Post.objects.create(author = ser, post_type = 'NW' , title = 'Cold Weather and Sport Exercise in Low Temperatures', text = 'Very important this one, more so than you might imagine (see below for a breakdown of why). There are two things your clothing has to do in cold weather even more so than at any other time, they are firstly to wick away sweat from your body and secondly to prevent too much of your body heat from escaping. Shorts and short-sleeved tops in the cold might give an image of ruggedness, but any fool can be uncomfortable.')
+
+
+
+5)Присвоить им категории (как минимум в одной статье/новости должно быть не меньше 2 категорий).
+ar1.category.add(sport)
+ar1.category.add(criminal)
+
+ar2.category.add(economic)
+ar2.category.add(criminal)
+
+new.category.add(sport)
+new.category.add(weather)
+
+
+
+
+6)Создать как минимум 4 комментария к разным объектам модели Post (в каждом объекте должен быть как минимум один комментарий).
+com1 = Comment.objects.create(post = ar1, user = snap, text = 'what?')
+com2 = Comment.objects.create(post = ar1, user = shot, text = 'who?')
+com3 = Comment.objects.create(post = ar2, user = snap, text = 'where?')
+com4 = Comment.objects.create(post = new, user = shot, text = 'how?')
+
+com1 = Comment.objects.get(id=1)
+com2 = Comment.objects.get(id=2)
+com3 = Comment.objects.get(id=3)
+com4 = Comment.objects.get(id=4)
+
+
+
+7)Применяя функции like() и dislike() к статьям/новостям и комментариям, скорректировать рейтинги этих объектов.
+com1.like()
+com1.like()
+com1.like()
+com2.like()
+com2.like()
+com2.like()
+com2.like()
+com2.like()
+com2.like()
+com3.like()
+com3.like()
+com4.like()
+
+com1.dislike()
+com1.dislike()
+com2.dislike()
+com3.dislike()
+com4.dislike()
+
+ar1.like()
+ar1.like()
+ar1.like()
+ar2.like()
+ar2.like()
+ar2.like()
+new.like()
+new.like()
+
+ar1.dislike()
+ar1.dislike()
+ar2.dislike()
+ar2.dislike()
+new.dislike()
+
+
+8)Обновить рейтинги пользователей.
+ser.update_rating()
+gan.update_rating()
+
+
+
+9)Вывести username и рейтинг лучшего пользователя (применяя сортировку и возвращая поля первого объекта).
+Author.objects.all().order_by('-rating').values('user', 'rating')[0]
+
+
+
+10)Вывести дату добавления, username автора, рейтинг, заголовок и превью лучшей статьи, основываясь на лайках/дислайках к этой статье.
+Post.objects.all().order_by('-rating').values('time_in', 'author__user__username', 'rating', 'title', 'text')[0]
+
+
+
+11)Вывести все комментарии (дата, пользователь, рейтинг, текст) к этой статье.
+Comment.objects.all().order_by().values('time_in', 'user__username', 'rating', 'text')[0]
+
+
