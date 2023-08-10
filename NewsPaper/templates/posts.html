@@ -1,15 +1,40 @@
-<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
 {% extends 'flatpages/default.html' %}
 
-<!-- Название у нас будет products -->
+{% load custom_filters %}!
+<!-- Подключаем новый файл с нашим тегом -->
+{% load custom_tags %}
+
 {% block title %}
 Posts
 {% endblock title %}
 
-<!-- В контенте на странице мы выводим все товары -->
 {% block content %}
-<h1>Все товары</h1>
-{{ posts }}
+   <h1>Все товары</h1>
+<h2>{% current_time '%d %b %Y' %}</h2>
+    <h3>
+        Количество новостей: {{ posts|length }}</h3>
+   <!-- Если в переменной next_sale будет None,
+   то выведется указанный в фильтре текст -->
+
+   <hr>
+   {% if posts %}
+       <table>
+           <tr>
+               <td>Название</td>
+               <td>Описание</td>
+               <td>Дата создания</td>
+           </tr>
+
+           {% for post in posts reversed %}
+           <tr>
+               <td>{{ post.title | censor }}</td>
+               <td>{{ post.text|truncatewords:20 |censor}}</td>
+               <td>{{ post.time_in }}</td>
+           </tr>
+           {% endfor %}
+
+       </table>
+   {% else %}
+       <h2>Товаров нет!</h2>
+   {% endif %}
 {% endblock content %}
-
-
