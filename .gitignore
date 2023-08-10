@@ -1,0 +1,8 @@
+/NewsPaper/news/migrations/0002_alter_post_category_alter_post_rating.py
+/NewsPaper/news/migrations/0003_alter_post_category.py
+/NewsPaper/news/migrations/0004_alter_post_category_alter_post_rating.py
+/NewsPaper/templates/flatpages/default.html
+/NewsPaper/static/index.html
+/NewsPaper/templates/post.html
+/NewsPaper/templates/posts.html
+/NewsPaper/static/css/styles.css
