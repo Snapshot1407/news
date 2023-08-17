@@ -1,12 +1,14 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Sum
+from django.urls import reverse
 
 
 # Create your models here.
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     rating = models.IntegerField(default=0)
+
 
 
     def update_rating(self):
@@ -21,6 +23,8 @@ class Author(models.Model):
 class Category(models.Model):
     category = models.CharField(max_length=255, unique=True)
 
+    def __str__(self):
+        return self.category.title()
 
 class Post(models.Model):
     article = "AR"
@@ -35,8 +39,8 @@ class Post(models.Model):
     post_type = models.CharField(max_length=2,choices=TYPE,default=article)
     time_in = models.DateTimeField(auto_now_add=True)
     category = models.ManyToManyField(Category,through="PostCategory")
-    title = models.CharField(max_length=255)
-    text = models.TextField()
+    title = models.CharField(max_length=255,)
+    text = models.TextField(unique = True)
     rating = models.IntegerField(default=0)
 
 
@@ -54,6 +58,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title.title()
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.id)])
 
 
 class PostCategory(models.Model):

@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+{%if post.post_type == 'AR' %}
+<h1>Удаление статьи</h1>
+{% else %}
+<h1>Удаление новости</h1>
+{%endif%}
+
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Удаляем "{{ post.title }}"?</p>
+    <input type="submit" value="Delete" />
+</form>
+{% endblock content %}

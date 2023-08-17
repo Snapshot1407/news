@@ -9,13 +9,18 @@ Posts
 {% endblock title %}
 
 {% block content %}
-   <h1>Все товары</h1>
+   <h1>Все новости</h1>
 <h2>{% current_time '%d %b %Y' %}</h2>
     <h3>
         Количество новостей: {{ posts|length }}</h3>
    <!-- Если в переменной next_sale будет None,
    то выведется указанный в фильтре текст -->
-
+{% if filterset.form.as_p %}
+<form action="" method="get">
+       {{ filterset.form.as_p }}
+       <input type="submit" value="Найти" />
+   </form>
+{% endif %}
    <hr>
    {% if posts %}
        <table>
@@ -25,7 +30,7 @@ Posts
                <td>Дата создания</td>
            </tr>
 
-           {% for post in posts reversed %}
+           {% for post in posts %}
            <tr>
                <td>{{ post.title | censor }}</td>
                <td>{{ post.text|truncatewords:20 |censor}}</td>
@@ -35,6 +40,29 @@ Posts
 
        </table>
    {% else %}
-       <h2>Товаров нет!</h2>
+       <h2>Новосте и статей нет!</h2>
    {% endif %}
+{% if page_obj.has_previous %}
+       {# Для каждой ссылки пагинации указываем обработку через новый тег #}
+       <a href="?{% url_replace page=1 %}">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {{ page_obj.number }}
+
+   {% if page_obj.has_next %}
+       <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+
+
+
+
 {% endblock content %}
