@@ -1,5 +1,7 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
+
 
 from .models import Post
 from .filters import PostFilter
@@ -14,10 +16,10 @@ class PostsList(ListView):
     context_object_name = 'posts'
     paginate_by = 10
 
-    '''def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['is_not_author'] = not self.request.user.groups.filter(name='authors').exists()
-        return context'''
+        context['is_not_author'] = not self.request.user.groups.filter(name='author').exists()
+        return context
 
 
 class PostDetail(DetailView):
@@ -54,9 +56,11 @@ class PostSearch(ListView):
 
 # Добавляем новое представление для создания товаров.
 
-class PostCreate( CreateView):
-    form_class = PostForm
+class PostCreate(CreateView, PermissionRequiredMixin):
+    permission_required = ('news.add_post',)
 
+    form_class = PostForm
+    context_object_name = 'post_create'
     model = Post
     template_name = 'post_edit.html'
     success_url = reverse_lazy('post_list')
@@ -68,7 +72,9 @@ class PostCreate( CreateView):
         print(self.request.path)
         post.save()
         return super().form_valid(form)
-class PostUpdate(UpdateView):
+class PostUpdate(UpdateView, PermissionRequiredMixin, LoginRequiredMixin):
+    permission_required = ('news.change_post',)
+
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
@@ -76,7 +82,9 @@ class PostUpdate(UpdateView):
 
 
 
-class PostDelete(DeleteView):
+class PostDelete(DeleteView, PermissionRequiredMixin, LoginRequiredMixin):
+    permission_required = ('news.delete_post',)
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')
+

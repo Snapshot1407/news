@@ -15,11 +15,15 @@ Posts
         Количество новостей: {{ posts|length }}</h3>
    <!-- Если в переменной next_sale будет None,
    то выведется указанный в фильтре текст -->
+
 {% if filterset.form.as_p %}
 <form action="" method="get">
        {{ filterset.form.as_p }}
        <input type="submit" value="Найти" />
    </form>
+
+{%else%}
+<button> <a href="search/">Поиск по фильтру</a> </button>
 {% endif %}
    <hr>
    {% if posts %}
@@ -60,7 +64,6 @@ Posts
            <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
        {% endif %}
    {% endif %}
-
 
 
 

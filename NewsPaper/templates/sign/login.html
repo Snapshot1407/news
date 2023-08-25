@@ -1,0 +1,13 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+<h2> Войти в систему </h2>
+<form method="POST">
+  {% csrf_token %}
+  <input type="input" class="form-control" name="username" id="inputEmail" placeholder="Username" required >
+  <input type="password" class="form-control" name="password" id="inputPass" placeholder="Password" required>
+  <button type="submit" style="opacity: 1 !important;">Login</button>
+  <a href="/password_reset">Reset Password</a>
+</form>
+<button> <a href="/sign/signup"> Регистрация </a></button>
+{% endblock %}

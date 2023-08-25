@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02201879-dc29-4a1a-9e86-3fe628019fb1" name="Changes" comment="Initial commit" />
+    <list default="true" id="02201879-dc29-4a1a-9e86-3fe628019fb1" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/NewsPaper/protect/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/sign/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/sign/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/account/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_2023_21_20__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_2023_21_20__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Проект News Portal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Проект News Portal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/flatpages/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/flatpages/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/posts.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -25,14 +46,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/python/Проект News Portal_Права доступа/NewsPaper/templates/account",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\python\Проект News Portal_Права доступа\NewsPaper\templates\account" />
+      <recent name="E:\python\Проект News Portal_Права доступа\NewsPaper\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\python\Проект News Portal_Права доступа\NewsPaper\templates\sign" />
+      <recent name="E:\python\Проект News Portal_Права доступа\NewsPaper\templates" />
+      <recent name="E:\python\Проект News Portal_Права доступа\NewsPaper\templates\protect" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
