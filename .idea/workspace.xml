@@ -5,24 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02201879-dc29-4a1a-9e86-3fe628019fb1" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/NewsPaper/protect/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/sign/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/sign/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/account/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_2023_21_20__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_08_2023_21_20__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/appointment/management/commands/runapscheduler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/appointment/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/appointment/templates/appointment_created.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/appointment/templates/make_appointment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/appointment/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribe/category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribe/category_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribe/daily_post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribe/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribe/post_created.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribe/posts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribe/subscribed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribe/welcome_email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Проект News Portal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Проект News Portal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/flatpages/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/flatpages/default.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/posts.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,16 +50,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/python/Проект News Portal_Права доступа/NewsPaper/templates/account",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/python/Отправляем письма через Django&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\python\Проект News Portal_Права доступа\NewsPaper\templates\account" />
@@ -84,7 +88,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691680680230</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1692944331783</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692944331783</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

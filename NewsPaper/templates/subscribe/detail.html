@@ -1,0 +1,13 @@
+<h3>
+    <a href="{% url 'news/{{ news.pk }}' post.id %}">
+        {{ post.title }}
+    </a>
+</h3>
+<p class="details">
+    By <span class="author">{{post.author}}</span>
+    on <span class="date">{{post.time_create}}</span>
+Category:
+{% for c in post.category.values %}
+<a href="{% url 'news:category' c.id %}" class="category">{{c.name}}</a>
+{% endfor %}
+</p>

@@ -5,14 +5,14 @@
 {% load custom_tags %}
 
 {% block title %}
-Posts
+News_all
 {% endblock title %}
 
 {% block content %}
    <h1>Все новости</h1>
 <h2>{% current_time '%d %b %Y' %}</h2>
     <h3>
-        Количество новостей: {{ posts|length }}</h3>
+        Количество новостей: {{ news_all|length }}</h3>
    <!-- Если в переменной next_sale будет None,
    то выведется указанный в фильтре текст -->
 
@@ -26,17 +26,21 @@ Posts
 <button> <a href="search/">Поиск по фильтру</a> </button>
 {% endif %}
    <hr>
-   {% if posts %}
+   {% if news_all %}
        <table>
            <tr>
                <td>Название</td>
+               <td>ghj</td>
                <td>Описание</td>
                <td>Дата создания</td>
            </tr>
 
-           {% for post in posts %}
+           {% for post in news_all %}
            <tr>
                <td>{{ post.title | censor }}</td>
+               <td>{% for category in post.category %}
+                    <a href="{% url 'category_list' category.id %}"> {{ category }}</a>
+                {% endfor %}</td>
                <td>{{ post.text|truncatewords:20 |censor}}</td>
                <td>{{ post.time_in }}</td>
            </tr>

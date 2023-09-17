@@ -22,6 +22,14 @@ class Author(models.Model):
 
 class Category(models.Model):
     category = models.CharField(max_length=255, unique=True)
+    subscribers = models.ManyToManyField(User, related_name='categories', blank=True)
+
+    def subscribe(self):
+        ...
+
+    def get_category(self):
+        return self.name
+
 
     def __str__(self):
         return self.category.title()
@@ -38,7 +46,7 @@ class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     post_type = models.CharField(max_length=2,choices=TYPE,default=article)
     time_in = models.DateTimeField(auto_now_add=True)
-    category = models.ManyToManyField(Category,through="PostCategory")
+    categories = models.ManyToManyField(Category, through="PostCategory")
     title = models.CharField(max_length=255,)
     text = models.TextField(unique = True)
     rating = models.IntegerField(default=0)
