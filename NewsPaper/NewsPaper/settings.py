@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_filters',
     'sign',
     'protect',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'django_apscheduler',
     'celery',
     'redis',
+    'board',
 ]
 
 SITE_ID = 1
@@ -188,8 +190,10 @@ APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
 # если задача не выполняется за 25 секунд, то она автоматически снимается, можете поставить время побольше, но как правило, это сильно бьёт по производительности сервера
 APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
 
-CELERY_BROKER_URL = 'redis://<username>:<password>@redis-15981.c302.asia-northeast1-1.gce.cloud.redislabs.com:15981'
-CELERY_RESULT_BACKEND = 'redis://<username>:<password>@redis-15981.c302.asia-northeast1-1.gce.cloud.redislabs.com:15981'
+#redis-cli -u redis://default:k9qjx355z5eJONeUtE0g4bxcnr2ARv4M@redis-15981.c302.asia-northeast1-1.gce.cloud.redislabs.com:15981
+
+CELERY_BROKER_URL = 'redis://default:k9qjx355z5eJONeUtE0g4bxcnr2ARv4M@redis-15981.c302.asia-northeast1-1.gce.cloud.redislabs.com:15981'
+CELERY_RESULT_BACKEND = 'redis://default:k9qjx355z5eJONeUtE0g4bxcnr2ARv4M@redis-15981.c302.asia-northeast1-1.gce.cloud.redislabs.com:15981'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
