@@ -43,17 +43,16 @@ INSTALLED_APPS = [
     'django_filters',
     'sign',
     'protect',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    # ... include the providers you want to enable:
-    'allauth.socialaccount.providers.google',
-    'appointment.apps.AppointmentsConfig',
-    'django_apscheduler',
     'celery',
     'redis',
     'board',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'appointment.apps.AppointmentsConfig',
+    'django_apscheduler',
+
 ]
 
 SITE_ID = 1
@@ -192,8 +191,11 @@ APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
 
 #redis-cli -u redis://default:k9qjx355z5eJONeUtE0g4bxcnr2ARv4M@redis-15981.c302.asia-northeast1-1.gce.cloud.redislabs.com:15981
 
-CELERY_BROKER_URL = 'redis://default:k9qjx355z5eJONeUtE0g4bxcnr2ARv4M@redis-15981.c302.asia-northeast1-1.gce.cloud.redislabs.com:15981'
-CELERY_RESULT_BACKEND = 'redis://default:k9qjx355z5eJONeUtE0g4bxcnr2ARv4M@redis-15981.c302.asia-northeast1-1.gce.cloud.redislabs.com:15981'
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_TASK_ALWAYS_EAGER = True
+CELERY_TASK_EAGER_PROPAGATES = True

@@ -21,8 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('NewsPortal/', include('news.urls')),
     path('', include('protect.urls')),
-    path('', include('board.urls')),
+    path('NewsPortal', include('board.urls')),
     path('sign/', include('sign.urls')),
     path('accounts/', include('allauth.urls')),
     path('appointment/', include('appointment.urls', namespace='appointment')),
+
 ]
