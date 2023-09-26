@@ -1,4 +1,4 @@
-from allauth.account.signals import user_signed_up
+'''from allauth.account.signals import user_signed_up
 from django.core.mail import EmailMultiAlternatives
 from django.db.models.signals import m2m_changed
 from django.dispatch import receiver
@@ -48,4 +48,4 @@ def send_welcome_email(request, user, **kwargs):
     message = render_to_string('subscribe/welcome_email.html', {
         'user': user,
     })
-    user.email_user(subject, message)
+    user.email_user(subject, message)'''

@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'protect',
     'celery',
     'redis',
-    'board',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

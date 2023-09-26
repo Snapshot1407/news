@@ -1,4 +1,4 @@
-import datetime
+'''import datetime
 import logging
 
 from django.conf import settings
@@ -87,4 +87,4 @@ class Command(BaseCommand):
         except KeyboardInterrupt:
             logger.info("Stopping scheduler...")
             scheduler.shutdown()
-            logger.info("Scheduler shut down successfully!")
+            logger.info("Scheduler shut down successfully!")'''

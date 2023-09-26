@@ -4,11 +4,10 @@ from django.shortcuts import redirect, get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
-
+from .tasks import send_email_task
 from .models import Post, Category
 from .filters import PostFilter
 from .forms import PostForm
-
 # Create your views here.
 
 class PostsList(ListView):
@@ -86,6 +85,7 @@ class PostCreate(CreateView, PermissionRequiredMixin):
             post.post_type = 'NW'
         print(self.request.path)
         post.save()
+        send_email_task.delay(post.pk)
         return super().form_valid(form)
 
 
