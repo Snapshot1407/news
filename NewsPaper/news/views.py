@@ -13,6 +13,7 @@ from .forms import PostForm
 from django.views.decorators.cache import cache_page
 from django.core.cache import cache
 # Create your views here.
+@cache_page(60*15)
 class PostsList(ListView):
     model = Post
     ordering = '-time_in'
