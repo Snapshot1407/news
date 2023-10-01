@@ -8,8 +8,11 @@ from .tasks import send_email_task
 from .models import Post, Category
 from .filters import PostFilter
 from .forms import PostForm
-# Create your views here.
 
+
+from django.views.decorators.cache import cache_page
+from django.core.cache import cache
+# Create your views here.
 class PostsList(ListView):
     model = Post
     ordering = '-time_in'
@@ -17,6 +20,7 @@ class PostsList(ListView):
     context_object_name = 'news_all'
     paginate_by = 10
 
+    #@cache_page(60 * 15)
     def get_queryset(self):
         # self.category =get_object_or_404(Category, id=self.kwargs['pk'])
         # Получаем обычный запрос
@@ -41,7 +45,15 @@ class PostDetail(DetailView):
     template_name = "post.html"
     context_object_name = 'post'
 
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'post-{self.kwargs["pk"]}',None)
 
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'post-{self.kwargs["pk"]}',obj)
+        return obj
+
+@cache_page(60 * 15)
 class PostSearch(ListView):
     model = Post
     ordering = '-time_in'
@@ -105,6 +117,8 @@ class PostDelete(DeleteView, PermissionRequiredMixin, LoginRequiredMixin):
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')
 
+
+@cache_page(60 * 15)
 class PostCategoryView(ListView):
     model = Post
     template_name = 'subscribe/category.html'
@@ -146,6 +160,9 @@ def unsubscribe(request, pk):
         category.subscribers.remove(user)
     return redirect('/')
 
+
+
+@cache_page(60 * 15)
 class CategoryListView(ListView):
     model = Post
     template_name = 'subscribe/category_list.html'

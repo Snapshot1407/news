@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Sum
 from django.urls import reverse
-
+from django.core.cache import cache
 
 # Create your models here.
 class Author(models.Model):
@@ -60,6 +60,13 @@ class Post(models.Model):
         self.rating -= 1
         self.save()
 
+    def get_absolute_url(self):  # добавим абсолютный путь, чтобы после создания нас перебрасывало на страницу с товаром
+        return f'/posts/{self.id}'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)  # сначала вызываем метод родителя, чтобы объект сохранился
+        cache.delete(f'post-{self.pk}')  # затем удаляем его из кэша, чтобы сбросить его
+
 
     def preview(self, len=124):
         return f"{self.text[:len]}..." if len(self.text) > len else self.text
@@ -67,8 +74,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title.title()
 
-    def get_absolute_url(self):
-        return reverse('post_detail', args=[str(self.id)])
 
 
 class PostCategory(models.Model):
