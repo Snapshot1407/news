@@ -1,0 +1,162 @@
+ERROR 2023-10-13 14:24:25,357  Internal Server Error: /NewsPortal/news/create/ E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\utils\log.py, (<class 'TypeError'>, TypeError("'int' object is not callable"), <traceback object at 0x000001DEE873F300>)
+Traceback (most recent call last):
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\views.py", line 98, in form_valid
+    send_email_task.delay(post.pk)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 591, in apply_async
+    return self.apply(args, kwargs, task_id=task_id or uuid(),
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 818, in apply
+    ret = tracer(task_id, args, kwargs, request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\trace.py", line 494, in trace_task
+    I, R, state, retval = on_error(task_request, exc)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\tasks.py", line 27, in send_email_task
+    html_content = render_to_string(
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 914, in _resolve_lookup
+    current = current()
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\models.py", line 72, in preview
+    return f"{self.text[:len]}..." if len(self.text) > len else self.text
+TypeError: 'int' object is not callable
+ERROR 2023-10-13 14:24:25,359  "POST /NewsPortal/news/create/ HTTP/1.1" 500 196811 E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\servers\basehttp.py, None
+ERROR 2023-10-13 14:29:45,810  Internal Server Error: /NewsPortal/news/create/ E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\utils\log.py, (<class 'TypeError'>, TypeError("'int' object is not callable"), <traceback object at 0x000001BD751EC980>)
+Traceback (most recent call last):
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\views.py", line 98, in form_valid
+    send_email_task.delay(post.pk)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 591, in apply_async
+    return self.apply(args, kwargs, task_id=task_id or uuid(),
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 818, in apply
+    ret = tracer(task_id, args, kwargs, request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\trace.py", line 494, in trace_task
+    I, R, state, retval = on_error(task_request, exc)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\tasks.py", line 27, in send_email_task
+    html_content = render_to_string(
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 914, in _resolve_lookup
+    current = current()
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\models.py", line 72, in preview
+    return f"{self.text[:len]}..." if len(self.text) > len else self.text
+TypeError: 'int' object is not callable
+ERROR 2023-10-13 14:29:45,810  "POST /NewsPortal/news/create/ HTTP/1.1" 500 196895 E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\servers\basehttp.py, None
+ERROR 2023-10-13 14:33:22,049  Internal Server Error: /NewsPortal/news/create/ E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\utils\log.py, (<class 'TypeError'>, TypeError("'int' object is not callable"), <traceback object at 0x0000011AF1C25B80>)
+Traceback (most recent call last):
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\views.py", line 98, in form_valid
+    send_email_task.delay(post.pk)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 591, in apply_async
+    return self.apply(args, kwargs, task_id=task_id or uuid(),
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\task.py", line 818, in apply
+    ret = tracer(task_id, args, kwargs, request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\trace.py", line 494, in trace_task
+    I, R, state, retval = on_error(task_request, exc)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\tasks.py", line 27, in send_email_task
+    html_content = render_to_string(
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\template\base.py", line 914, in _resolve_lookup
+    current = current()
+  File "E:\python\Проект News Portal_Права доступа\NewsPaper\news\models.py", line 72, in preview
+    return f"{self.text[:len]}..." if len(self.text) > len else self.text
+TypeError: 'int' object is not callable
+ERROR 2023-10-13 14:33:22,049  "POST /NewsPortal/news/create/ HTTP/1.1" 500 196957 E:\python\Проект News Portal_Права доступа\venv\lib\site-packages\django\core\servers\basehttp.py, None

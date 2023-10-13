@@ -1,0 +1,2 @@
+WARNING 2023-10-13 14:28:52,635 log  Forbidden (CSRF token missing.): /NewsPortal/news/create/
+WARNING 2023-10-13 14:29:14,864 log  Forbidden (CSRF token missing.): /NewsPortal/news/create/

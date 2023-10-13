@@ -10,7 +10,8 @@ class PostForm(ModelForm):
         fields = [
             'title',
             'text',
-            'author','categories',
+            'author',
+            'categories',
         ]
 
         labels = {

@@ -1,0 +1,9 @@
+INFO 2023-10-13 14:25:57,530 autoreload  Watching for file changes with StatReloader
+WARNING 2023-10-13 14:28:52,635 log  Forbidden (CSRF token missing.): /NewsPortal/news/create/
+WARNING 2023-10-13 14:29:14,864 log  Forbidden (CSRF token missing.): /NewsPortal/news/create/
+INFO 2023-10-13 14:29:32,108 autoreload  Watching for file changes with StatReloader
+INFO 2023-10-13 14:33:06,333 autoreload  Watching for file changes with StatReloader
+INFO 2023-10-13 14:35:04,254 autoreload  E:\python\Проект News Portal_Права доступа\NewsPaper\news\forms.py changed, reloading.
+INFO 2023-10-13 14:35:05,574 autoreload  Watching for file changes with StatReloader
+INFO 2023-10-13 14:35:58,296 autoreload  E:\python\Проект News Portal_Права доступа\NewsPaper\news\models.py changed, reloading.
+INFO 2023-10-13 14:35:59,183 autoreload  Watching for file changes with StatReloader
